@@ -66,3 +66,24 @@ body{
 .submitBtn:active {
   transform: translateY(4px);
 }
+
+@media (max-width: 650px) {
+    .urlInputBox, .submitBtn {
+        height: 28px;
+        font-size: 10pt;
+    }
+}
+
+@media (max-width: 530px) {
+    .urlInputBox, .submitBtn {
+        height: 24px;
+        font-size: 7pt;
+    }
+}
+
+@media (max-width: 430px) {
+    .urlInputBox, .submitBtn {
+        height: 20px;
+        font-size: 5pt;
+    }
+}
