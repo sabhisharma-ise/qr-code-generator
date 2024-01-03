@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EJS</title>
+    <link rel="stylesheet" href="css/result.css">
+    <!-- Using EJS in a Script Tag -->
+    <script src="ejs.js"></script>
+</head>
+
+<body>
+
+    <div class="boxx">
+
+        <div class="qr-container">
+            <img class="qr-img" src="qr_img.png">
+        </div>
+
+        <div class="btnContainer">
+            
+            <button class="downloadBtn" onclick="downloadQR()">Save</button>
+
+            <form action="/result" method="post">
+                <button class="submitBtn" type="submit">Back</button>
+            </form>
+        
+        </div>
+
+    </div>
+
+    <script>
+        function downloadQR() {
+            const qrImage = document.querySelector('.qr-img');
+            const qrImageSrc = qrImage.src;
+
+            const downloadLink = document.createElement('a');
+            downloadLink.href = qrImageSrc;
+            downloadLink.download = 'qr_img.png';
+            downloadLink.click();
+        }
+    </script>
+
+</body>
+
+</html>
+
+<script>
+    // EJS code
+    
+</script>
