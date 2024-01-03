@@ -25,14 +25,6 @@ app.post("/", function (req, res) {
     var qr_img = qr.image(url);
     qr_img.pipe(fs.createWriteStream(path.join(__dirname, 'public/qr_img.png')));
 
-    fs.writeFile(path.join(__dirname, 'public/url.txt'), url, (err) => {
-
-        if (err) throw err;
-        // console.log("The file has been saved!");
-    })
-
-    // res.sendFile(imageURL);
-
     res.render("index");
 
 });
