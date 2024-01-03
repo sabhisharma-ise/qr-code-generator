@@ -1,7 +1,8 @@
-
 const express = require("express");
 const qr = require('qr-image');
 const fs = require('fs');
+const fs_extra = require('fs-extra');
+const path = require('path'); 
 
 const app = express();
 
@@ -21,10 +22,10 @@ app.post("/", function (req, res) {
 
     const url = req.body.URL;
 
-    var qr_img = qr.image(url, { type: 'png' });
-    qr_img.pipe(fs.createWriteStream('public/qr_img.png'));
+    var qr_img = qr.image(url);
+    qr_img.pipe(fs.createWriteStream(path.join(__dirname, 'public/qr_img.png')));
 
-    fs.writeFile("public/url.txt", url, err => {
+    fs.writeFile(path.join(__dirname, 'public/url.txt'), url, (err) => {
 
         if (err) throw err;
         // console.log("The file has been saved!");
@@ -35,6 +36,8 @@ app.post("/", function (req, res) {
     res.render("index");
 
 });
+
+fs_extra.ensureDirSync(path.join(__dirname, 'public'));
 
 app.post("/result", function(req, res) {
     res.redirect("/");
