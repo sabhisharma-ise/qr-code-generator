@@ -40,10 +40,9 @@ app.post("/result", function(req, res) {
     res.redirect("/");
 });
 
-app.listen(3000, () => {
-
-    console.log("Server running at port 3000");
-
-});
+app.listen(process.env.PORT || 3000, () => {
+    
+    console.log("Server is running at port 3000.");
+})
 
 module.exports = app;
