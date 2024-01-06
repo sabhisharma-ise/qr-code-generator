@@ -19,6 +19,6 @@ Here's a brief breakdown of code:
 
 - The application is built using the Express.js framework.
 - The server handles a POST request, typically triggered by user input, to generate a QR code dynamically based on the URL provided by the user.
-- The main EJS template (index.ejs) plays a central role in presenting the user interface. It includes elements for displaying the generated QR code and buttons for both generating and downloading the QR code.
+- The main EJS template (index.ejs) plays a central role in presenting the user interface. It includes elements for displaying the generated QR code and buttons for downloading the QR code.
 - QR codes are generated on the server side, ensuring that the encoding process is executed securely and efficiently. The qr-image npm package is utilized for this purpose.
 - The application employs CSS styles to enhance the visual appeal of both the QR code and the buttons.
