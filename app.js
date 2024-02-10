@@ -1,10 +1,7 @@
-import express from "express";
-import qr from "qr-image";
-import fs from "fs";
-import path from "path";
-import { dirname } from "path";
-import { fileURLToPath } from "url";
-const __dirname = dirname(fileURLToPath(import.meta.url));
+const express = require("express");
+const qr = require("qr-image");
+const fs = require("fs");
+const path = require("path");
 
 const app = express();
 const port = 3000;
@@ -42,4 +39,4 @@ app.listen(process.env.PORT || port, () => {
     console.log("Server is running at port 3000.");
 })
 
-export default app;
+module.exports = app;
