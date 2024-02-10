@@ -28,8 +28,8 @@ app.post("/", function (req, res) {
     const url = req.body.URL;
 
     var qr_img = qr.image(url);
-    // qr_img.pipe(fs.createWriteStream(path.join(__dirname, 'public/qr_img.png')));
-    qr_img.pipe(fs.createWriteStream(__dirname + "/public/qr_img.png"));
+    qr_img.pipe(fs.createWriteStream(path.join(__dirname, 'public/qr_img.png')));
+    // qr_img.pipe(fs.createWriteStream(__dirname + "/public/qr_img.png"));
 
     res.render("index");
 
