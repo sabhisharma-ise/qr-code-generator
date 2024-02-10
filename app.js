@@ -2,7 +2,7 @@ import express from "express";
 import qr from "qr-image";
 import fs from "fs";
 
-import path from "path";
+// import path from "path";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -28,8 +28,10 @@ app.post("/", function (req, res) {
     const url = req.body.URL;
 
     var qr_img = qr.image(url);
-    qr_img.pipe(fs.createWriteStream(path.join(__dirname, 'public/qr_img.png')));
-    // qr_img.pipe(fs.createWriteStream(__dirname + "/public/qr_img.png"));
+    const filePath = __dirname + "/tmp/qr_img.png";
+    qr_img.pipe(fs.createWriteStream(filePath));
+    // qr_img.pipe(fs.createWriteStream(path.join(__dirname, 'public/qr_img.png')));
+    // qr_img.pipe(fs.createWriteStream(__dirname + "/tmp/qr_img.png", "testing"));
 
     res.render("index");
 
